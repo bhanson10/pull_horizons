@@ -1,9 +1,9 @@
 CC=gcc
 
 # RELEASE
-CFLAGS=-pedantic -Wall -std=c99 -D_GNU_SOURCE -fPIC -I/opt/homebrew/include 
+CFLAGS=-pedantic -Wall -std=c99 -D_GNU_SOURCE -fPIC -I<path/to/homebrew/include>
 
-LDFLAGS=-L/opt/homebrew/lib
+LDFLAGS=-L<path/to/homebrew/lib>
 LDLIBS=-lm -lcurl
 
 .DEFAULT: main

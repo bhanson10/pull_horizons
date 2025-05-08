@@ -55,3 +55,7 @@ This example will take slightly longer than the first, but you should see live t
 
 ## License
 **pull_horizons** is freely distributed under the [BSD 3-Clause License](https://opensource.org/license/bsd-3-clause).
+
+## Contributors
+
+* Benjamin L. Hanson, MAE | UC San Diego, <blhanson@ucsd.edu>

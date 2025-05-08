@@ -27,7 +27,7 @@ This will mostly likely return _/opt/homebrew_. In this case, you would replace 
 
 ## Basic example
 
-To begin, we assume all steps from **Installation** have been followed. This example generates the ephemeris of 2024 YR4, an asteroid with a non-negligible probability of hitting the Moon in Decemnber 2032. For this example, we pull from the JPL Horizons API the ephemeris of 2024 YR4 from May 5, 2025 to December 23, 2032 with 1 day, regularly space intervals. Almost all of the functionality provided by the JPL Horizons app is available in this script via configuration of the parameters (ephemeris type, center, reference plance, start/stop date, step size, units, etc). 
+To begin, we assume all steps from **Installation** have been followed. This example generates the ephemeris of 2024 YR4, an asteroid with a non-negligible probability of hitting the Moon in December 2032. For this example, we pull from the JPL Horizons API the ephemeris of 2024 YR4 from May 5, 2025 to December 23, 2032 with 1 day, regularly space intervals. Almost all of the functionality provided by the JPL Horizons app is available in this script via configuration of the parameters (ephemeris type, center, reference plance, start/stop date, step size, units, etc). 
 
 First, enter into the _examples_ directory:
 

@@ -4,7 +4,7 @@ The [JPL Horizons app](https://ssd.jpl.nasa.gov/horizons/app.html#/) is a handy 
 
 ## Installation
 
-To install the **pull\_horizons**, first clone the Github repository. In an empty directory, run:
+To install **pull\_horizons**, first clone the Github repository. In an empty directory, run:
 
     git clone https://github.com/bhanson10/pull_horizons.git
 

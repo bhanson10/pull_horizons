@@ -1,6 +1,6 @@
 # pull_horizons
 
-The [JPL Horizons app](https://ssd.jpl.nasa.gov/horizons/app.html#/) is a handy tool for generating the ephemerides of planets, satellites, and spacecraft. One of its downsides is that requests must have regular intervals between epochs. Using the [JPL Horizons API](https://ssd-api.jpl.nasa.gov/doc/horizons.html#vec_table), users can request ephemerides at varying epochs, but doing this manually, especially for large data sets, is cumbersome. **pull\_horizons** uses _curl_ to scrape the JPL Horizons API at irregular calendar dates in an efficient manner, creating ephemerides exactly like the ones provided by the JPL Horizons app, but with the added flexibility of irregular intervals. 
+The [JPL Horizons app](https://ssd.jpl.nasa.gov/horizons/app.html#/) is a handy tool for generating the ephemerides of planets, satellites, and spacecraft. One of its downsides is that requests must have regular intervals between epochs. Using the [JPL Horizons API](https://ssd-api.jpl.nasa.gov/doc/horizons.html#vec_table), users can request ephemerides at varying epochs, but doing this manually, especially for large data sets, is cumbersome. **pull\_horizons** uses _curl_ to scrape the JPL Horizons API at irregular calendar dates in an efficient manner, creating ephemerides exactly like the ones provided by the JPL Horizons app, but with the added flexibility of irregular epoch intervals. 
 
 ## Installation
 

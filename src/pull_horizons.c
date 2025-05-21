@@ -165,6 +165,10 @@ void pull_horizons(char* target_body, char* ephem_type, char* center, char* ref_
         }
     }
 
+    if (vec_table_set != NULL){
+        if(strchr(VEC_TABLE, '2') && chunk_size == 2) chunk_size++; // state is double-lined when VEC_TABLE=='2'
+    }
+
     char* url_pre  = "https://ssd.jpl.nasa.gov/api/horizons.api?"; 
 
     char* horizons_url = NULL; 
@@ -377,15 +381,15 @@ void pull_horizons_irreg(char* target_body, char* ephem_type, char* center, char
         size_t line_len = strlen(line_buf);
 
         if (strncmp(line_buf, "Start time", 10) == 0) {
-            char new_line[256];
+            char new_line[1000];
             snprintf(new_line, sizeof(new_line), "Start time : A.D. %s TDB", line_f);
             overwrite_line(fp, pos, line_len, new_line);
         } else if (strncmp(line_buf, "Stop  time", 10) == 0) {
-            char new_line[256];
+            char new_line[1000];
             snprintf(new_line, sizeof(new_line), "Stop  time : A.D. %s TDB", line);
             overwrite_line(fp, pos, line_len, new_line);
         } else if (strncmp(line_buf, "Step-size", 9) == 0) {
-            char new_line[256];
+            char new_line[1000];
             snprintf(new_line, sizeof(new_line), "Steps : %.6e", (double)N);
             overwrite_line(fp, pos, line_len, new_line);
         }

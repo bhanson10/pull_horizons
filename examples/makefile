@@ -12,17 +12,17 @@ basic: mk_dir
 	@echo ""
 	@echo "Compiling problem file ..."
 	$(CC) ${CFLAGS} ${LDFLAGS} -o basic_example basic_example.c ../src/pull_horizons.c ${LDLIBS}
-	./basic_example
 	@echo ""
 	@echo "Problem file compiled successfully."
+	./basic_example
 
 irreg: mk_dir
 	@echo ""
 	@echo "Compiling problem file ..."
 	$(CC) ${CFLAGS} ${LDFLAGS} -o irregular_example irregular_example.c ../src/pull_horizons.c ${LDLIBS}
-	./irregular_example
 	@echo ""
 	@echo "Problem file compiled successfully."
+	./irregular_example
 
 mk_dir:
 	mkdir -p outputs

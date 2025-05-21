@@ -6,7 +6,7 @@ CFLAGS=-pedantic -Wall -std=c99 -D_GNU_SOURCE -fPIC -I<path/to/homebrew/include>
 LDFLAGS=-L<path/to/homebrew/lib>
 LDLIBS=-lm -lcurl
 
-.DEFAULT: main
+.DEFAULT: basic
 
 basic: mk_dir
 	@echo ""
@@ -15,6 +15,8 @@ basic: mk_dir
 	@echo ""
 	@echo "Problem file compiled successfully."
 	./basic_example
+	@echo ""
+	@echo "Problem file executed."
 
 irreg: mk_dir
 	@echo ""
@@ -23,6 +25,8 @@ irreg: mk_dir
 	@echo ""
 	@echo "Problem file compiled successfully."
 	./irregular_example
+	@echo ""
+	@echo "Problem file executed."
 
 mk_dir:
 	mkdir -p outputs

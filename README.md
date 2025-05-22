@@ -37,7 +37,7 @@ To compile and execute the basic YR4 example, run the makefile in basic mode:
 
     make basic
 
-For reference, this example uses [this API link](https://ssd.jpl.nasa.gov/api/horizons.api?format=text&COMMAND=%272024%20YR4%27&EPHEM_TYPE=%27VECTORS%27&CENTER=%27%40SSB%27&REF_PLANE=%27F%27&START_TIME=%272025-05-05%2000:00:00%27&STOP_TIME=%272032-12-23%2000:00:00%27&STEP_SIZE=%271d%27&OUT_UNITS=%27AU-D%27&VEC_TABLE=%272x%27). The generated ephemeris will by default be saved to _"</path/to/pull_horizons>/examples/outputs/rv_YR4_SSB_eq_basic.txt"_ in the exact same form as it would be downloaded off the JPL Horizons app. 
+For reference, this example creates [this API link](https://ssd.jpl.nasa.gov/api/horizons.api?format=text&COMMAND=%272024%20YR4%27&EPHEM_TYPE=%27VECTORS%27&CENTER=%27%40SSB%27&REF_PLANE=%27F%27&START_TIME=%272025-05-05%2000:00:00%27&STOP_TIME=%272032-12-23%2000:00:00%27&STEP_SIZE=%271d%27&OUT_UNITS=%27AU-D%27&VEC_TABLE=%272x%27). The generated ephemeris will by default be saved to _"</path/to/pull_horizons>/examples/outputs/rv_YR4_SSB_eq_basic.txt"_ in the exact same form as it would be downloaded off the JPL Horizons app. 
 
 ## Irregular example
 

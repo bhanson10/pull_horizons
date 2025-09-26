@@ -24,9 +24,15 @@ size_t write_to_memory(void* ptr, size_t size, size_t nmemb, void* userp);
 
 char** split_lines(const char* input, size_t* num_lines_out);
 
+char* add_one_second(char *input);
+
+void extract_state_after_SOE(char **lines, double *state);
+
 void pull_horizons(char* target_body, char* ephem_type, char* center, char* ref_plane, char* start, char* stop, char* step, char* units, char* vec_table_set, char* file_name, int date_type);
 
 void overwrite_line(FILE *fp, long pos, size_t original_len, const char *new_content);
+
+void pull_horizons_single(char* target_body, char* ephem_type, char* center, char* ref_plane, char* start, char* units, char* vec_table_set, double* state, int dim);
 
 void pull_horizons_irreg(char* target_body, char* ephem_type, char* center, char* ref_plane, char* units, char* vec_table_set, char* file_name, int N, char* t_file_name);
 

@@ -45,7 +45,7 @@ char* build_url(int size, char** url_strs){
     total_len += size - 1;  // for size - 1 '&'s between size strings
     total_len += 1;  // null terminator
 
-    char* url = malloc(total_len);
+    char* url = malloc(total_len + 1);
     if (url == NULL) {
         fprintf(stderr, "Error: malloc in build_url failed.\n");
         exit(1);  // Exit with error code 1
@@ -245,7 +245,7 @@ void pull_horizons(char* target_body, char* ephem_type, char* center, char* ref_
                             "%27"};
         horizons_url = build_url(22, url_strs);
     }
-    // printf("\n%s\n", horizons_url); 
+    printf("\n%s\n", horizons_url); 
 
     CURL* curl;
     CURLcode res;
@@ -257,6 +257,8 @@ void pull_horizons(char* target_body, char* ephem_type, char* center, char* ref_
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_to_memory);
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, &chunk);
         curl_easy_setopt(curl, CURLOPT_USERAGENT, "libcurl-agent/1.0");
+        curl_easy_setopt(curl, CURLOPT_CONNECTTIMEOUT, 0L);  
+        curl_easy_setopt(curl, CURLOPT_TIMEOUT, 0L);         
 
         res = curl_easy_perform(curl);
         if(res != CURLE_OK){
@@ -486,6 +488,8 @@ void pull_horizons_single(char* target_body, char* ephem_type, char* center, cha
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_to_memory);
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, &chunk);
         curl_easy_setopt(curl, CURLOPT_USERAGENT, "libcurl-agent/1.0");
+        curl_easy_setopt(curl, CURLOPT_CONNECTTIMEOUT, 0L);  
+        curl_easy_setopt(curl, CURLOPT_TIMEOUT, 0L);        
 
         res = curl_easy_perform(curl);
         if(res != CURLE_OK){
@@ -520,8 +524,8 @@ void pull_horizons_irreg(char* target_body, char* ephem_type, char* center, char
     char* step  = "1"; 
 
     FILE* fp = fopen(t_file_name, "r");
-    if (t_file_name == NULL) {
-        fprintf(stderr, "Error: could not open file %s", t_file_name);
+    if (!fp) {
+        fprintf(stderr, "Error: could not open file %s\n", t_file_name);
         exit(1);
     }
 
@@ -530,15 +534,19 @@ void pull_horizons_irreg(char* target_body, char* ephem_type, char* center, char
     char line[256];
     fgets(line_p, sizeof(line_p), fp); line_p[strcspn(line_p, "\n")] = '\0'; strcpy(line_f, line_p);
 
+    int date_type; 
     for(int i = 0; i < N; i++){
         if(i == 0){
+            date_type = 1; 
             fgets(line, sizeof(line), fp); line[strcspn(line, "\n")] = '\0';
-            pull_horizons(target_body, ephem_type, center, ref_plane, line_p, line, step, units, vec_table_set, file_name, 1); 
+            pull_horizons(target_body, ephem_type, center, ref_plane, line_p, line, step, units, vec_table_set, file_name, date_type); 
         }else if(i == (N - 1)){
-            pull_horizons(target_body, ephem_type, center, ref_plane, line_p, line, step, units, vec_table_set, file_name, 3); 
+            date_type = 3; 
+            pull_horizons(target_body, ephem_type, center, ref_plane, line_p, line, step, units, vec_table_set, file_name, date_type); 
         }else{
+            date_type = 2; 
             fgets(line, sizeof(line), fp); line[strcspn(line, "\n")] = '\0';
-            pull_horizons(target_body, ephem_type, center, ref_plane, line_p, line, step, units, vec_table_set, file_name, 2); 
+            pull_horizons(target_body, ephem_type, center, ref_plane, line_p, line, step, units, vec_table_set, file_name, date_type); 
         }
 
         if(i != (N - 2)){

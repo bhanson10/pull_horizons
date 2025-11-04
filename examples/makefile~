@@ -1,12 +1,12 @@
 CC=gcc
 
 # RELEASE
-CFLAGS=-pedantic -Wall -std=c99 -D_GNU_SOURCE -fPIC -I<path/to/homebrew/include>
+CFLAGS=-pedantic -Wall -std=c99 -D_GNU_SOURCE -fPIC -I/opt/homebrew/include 
 
-LDFLAGS=-L<path/to/homebrew/lib>
+LDFLAGS=-L/opt/homebrew/lib
 LDLIBS=-lm -lcurl
 
-.DEFAULT: basic
+.DEFAULT: basic1
 
 basic1: mk_dir
 	@echo ""

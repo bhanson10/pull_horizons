@@ -61,7 +61,8 @@ int main(void){
                         vec_table_set, 
                         file_name, 
                         N,
-                        t_file_name); 
+                        t_file_name,
+                        0); /* Set this parameter to 1 if the target body is an SPK ID */
     
     return 0;
 }

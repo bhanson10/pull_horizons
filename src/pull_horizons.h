@@ -28,12 +28,12 @@ char* add_one_second(char *input);
 
 void extract_state_after_SOE(char **lines, double *state);
 
-void pull_horizons(char* target_body, char* ephem_type, char* center, char* ref_plane, char* start, char* stop, char* step, char* units, char* vec_table_set, char* file_name, int date_type);
+void pull_horizons(char* target_body, char* ephem_type, char* center, char* ref_plane, char* start, char* stop, char* step, char* units, char* vec_table_set, char* file_name, int date_type, bool spk);
 
 void overwrite_line(FILE *fp, long pos, size_t original_len, const char *new_content);
 
-void pull_horizons_single(char* target_body, char* ephem_type, char* center, char* ref_plane, char* start, char* units, char* vec_table_set, double* state, int dim);
+void pull_horizons_single(char* target_body, char* ephem_type, char* center, char* ref_plane, char* start, char* units, char* vec_table_set, double* state, int dim, bool spk);
 
-void pull_horizons_irreg(char* target_body, char* ephem_type, char* center, char* ref_plane, char* units, char* vec_table_set, char* file_name, int N, char* t_file_name);
+void pull_horizons_irreg(char* target_body, char* ephem_type, char* center, char* ref_plane, char* units, char* vec_table_set, char* file_name, int N, char* t_file_name, bool spk);
 
 #endif // PULL_HORIZONS_H

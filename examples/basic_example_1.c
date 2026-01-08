@@ -60,6 +60,7 @@ int main(void){
                                 */
     char* file_name = "./outputs/rv_YR4_SSB_eq_basic.txt"; 
 
+
     pull_horizons(target_body, 
                   ephem_type,
                   center, 
@@ -70,9 +71,8 @@ int main(void){
                   units, 
                   vec_table_set,
                   file_name,
-                  0); /* This final parameter writes the entire file, 
-                      in general, use 0 here, see irregular_example.c 
-                      for more information */
+                  0, /* This parameter writes the entire file, in general, use 0 here, see irregular_example.c for more information */
+                  0); /* Set this parameter to 1 if the target body is an SPK ID */
 
     return 0;
 }

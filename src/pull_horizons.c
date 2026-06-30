@@ -251,7 +251,7 @@ void pull_horizons(char* target_body, char* ephem_type, char* center, char* ref_
                             "%27"};
         horizons_url = build_url(22, url_strs);
     }
-    printf("\n%s\n", horizons_url); 
+    // printf("\n%s\n", horizons_url); 
 
     CURL* curl;
     CURLcode res;
